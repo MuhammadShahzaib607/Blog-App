@@ -1,0 +1,122 @@
+.home {
+    width: 100%;
+
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+
+        .cardContainer {
+            width: 92%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 50px;
+            
+            .createBlog {
+                height: 260px;
+                width: 300px;
+                border-radius: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: whitesmoke;
+                color: rgb(172 172 172);
+                box-shadow: 2px 2px 10px #d3cece;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                animation: fadeIn 0.5s ease-in-out;
+                user-select: none;
+                z-index: 998;
+                font-size: 80px;
+
+                &:hover {
+                    transform: translateY(-3px);
+                    opacity: 0.9;
+                }
+            }
+
+            .blogWebsiteCard {
+                height: 260px;
+                width: 300px;
+                background-color: whitesmoke;
+                border-radius: 40px;
+                user-select: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                position: relative;
+                flex-direction: column;
+                box-shadow: 7px 7px 10px #d3cece;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                animation: fadeIn 0.5s ease-in-out;
+
+&:hover {
+    transform: translateY(-5px);
+}
+
+                .blackScreen {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 40px;
+                }
+
+                h2 {
+                    color: #333;
+                    text-align: center;
+                }
+
+                p {
+                    color: #555;
+                    font-size: 14px;
+                    width: 90%;
+                    text-align: center;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+.home {
+    .container {
+
+        .cardContainer {
+            .createBlog, .blogWebsiteCard {
+                width: 44%;
+            }
+        }
+    }
+}
+}
+
+@media (max-width: 750px) {
+.home {
+    .container {
+
+        .cardContainer {
+            .createBlog, .blogWebsiteCard {
+                width: 90%;
+            }
+        }
+    }
+}
+}
+
+   @keyframes fadeIn {
+                    from {
+                      opacity: 0;
+                      transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0px);
+                    }
+                }

@@ -1,0 +1,62 @@
+.blog {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+     animation: fadeIn 0.5s ease-in-out;
+ .container {
+    width: 80%;
+    padding: 20px 0 50px 0;
+    .top {
+        text-align: center;
+        h1 {
+color: #333;
+line-height: 40px;
+        }
+    }
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 25px;
+        .blogContainer {
+            h2 {
+margin-bottom: 6px;
+color: #444;
+            }
+            p {
+                color: #555;
+                line-height: 22px;
+                font-size: 14px;
+            }
+        }
+    }
+    .back {
+        margin-top: 30px;
+        button {
+                cursor: pointer;
+                position: relative;
+                padding-left: 15px;
+                border: none;
+                background-color: transparent;
+                span {
+                    svg {
+                        position: absolute;
+    top: -2px;
+    left: -7px;
+                    }
+                }
+            }
+    }
+ }   
+}
+
+@keyframes fadeIn {
+                    from {
+                      opacity: 0;
+                      transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0px);
+                    }
+                }
