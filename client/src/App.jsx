@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Navbar from "./components/navbar/Navbar"
 import Blogs from './pages/blogs/Blogs'
-import Navbar from './components/navbar/Navbar'
 import Create from './pages/create/Create'
 import CreateBlogWeb from './pages/createBlogWeb/CreateBlogWeb'
 import FinishBlog from './pages/finishBlog/FinishBlog'
