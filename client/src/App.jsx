@@ -5,7 +5,7 @@ import Navbar from './components/navbar/Navbar'
 import Create from './pages/create/Create'
 import CreateBlogWeb from './pages/createBlogWeb/CreateBlogWeb'
 import FinishBlog from './pages/finishBlog/FinishBlog'
-import Blog from './pages/blog/Blog'
+import Blog from './pages/blog/Blog' 
 import Home from './pages/home/Home'
 
 function App() {
