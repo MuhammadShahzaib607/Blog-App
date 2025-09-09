@@ -7,25 +7,34 @@ import { useState } from 'react'
 
 const Home = () => {
   const [blogs, setBlogs] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
-const fectBlogs = async ()=> {
+const fecthBlogs = async ()=> {
   try {
+    setIsLoading(true)
     localStorage.removeItem("blogId")
-   const res = await axios.get("http://localhost:8000/api/blogs/")
+   const res = await axios.get("https://blog-app-gamma-murex.vercel.app/api/blogs/")
     setBlogs(res.data.blogWebsites.reverse())
+    setIsLoading(false)
   } catch (error) {
-    
+        setIsLoading(false)
   }
 }
 
 useEffect(()=> {
-fectBlogs()
+fecthBlogs()
 }, [])
 
 
 
   return (
-    <div className='home'>
+<>
+{
+  isLoading ?
+  <div className="loading">
+    <p>Loading ....</p>
+  </div> :
+      <div className='home'>
         <div className="container">
             <div className="cardContainer">
                 <Link to="/createBlogWeb" className="createBlog"><div>+</div></Link>
@@ -41,6 +50,8 @@ fectBlogs()
             </div>
         </div>
     </div>
+}
+</>
   )
 }
 

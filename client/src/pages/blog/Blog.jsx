@@ -9,14 +9,17 @@ import { useEffect } from 'react'
 const Blog = () => {
     const {id, i} = useParams()
 const [blog, setBlog] = useState([])
+const [isLoading, setIsLoading] = useState(false)
 
 const fetchBlog = async ()=> {
     try {
-        const res = await axios.get(`http://localhost:8000/api/blogs/${id}`)
+        setIsLoading(true)
+        const res = await axios.get(`https://blog-app-gamma-murex.vercel.app/api/blogs/${id}`)
         // console.log(res.data.blog.blogs[i])
         setBlog(res.data.blog.blogs[i])
+        setIsLoading(false)
     } catch (error) {
-        
+        setIsLoading(false)
     }
 }
 
@@ -25,6 +28,12 @@ fetchBlog()
 }, [])
 
   return (
+   <>
+   {
+    isLoading ? 
+    <div className="loading">
+    <p>Loading ....</p>
+  </div> :
     <div className='blog'>
        <div className="container">
          <div className="top">
@@ -45,7 +54,10 @@ return <div className="blogContainer" key={i}>
             <Link to={`/blogs/${id}`}><button><span><IoIosArrowRoundBack fontSize={19}/></span>Back</button></Link>
         </div>
        </div>
+    
     </div>
+   }
+</>
   )
 }
 

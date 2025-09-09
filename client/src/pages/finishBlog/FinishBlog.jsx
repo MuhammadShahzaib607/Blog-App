@@ -13,7 +13,7 @@ const FinishBlog = () => {
         try {
            const id = localStorage.getItem("blogId")
            console.log(id)
-await axios.put(`http://localhost:8000/api/blogs/${id}`, blog)
+await axios.put(`https://blog-app-gamma-murex.vercel.app/api/blogs/${id}`, blog)
 navigate(`/blogs/${id}`)
         } catch (error) {
             

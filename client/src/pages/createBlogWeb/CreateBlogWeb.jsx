@@ -13,7 +13,7 @@ const navigate = useNavigate()
   const createHandler = ()=> {
     try {
       if (title === "" || subtitle === "") return
-      axios.post("http://localhost:8000/api/blogs/", {
+      axios.post("https://blog-app-gamma-murex.vercel.app/api/blogs/", {
         title,
         subTitle: subtitle
       })

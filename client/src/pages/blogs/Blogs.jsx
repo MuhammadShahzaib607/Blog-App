@@ -9,16 +9,19 @@ import { useState } from 'react'
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   const {id} = useParams()
 
   const fetchBlog = async ()=> {
     try {
-      const res = await axios.get(`http://localhost:8000/api/blogs/${id}`)
+      setIsLoading(true)
+      const res = await axios.get(`https://blog-app-gamma-murex.vercel.app/api/blogs/${id}`)
       setBlogs(res.data.blog.blogs)
       localStorage.setItem("blogId", id)
       // console.log(res.data.blog.blogs)
+      setIsLoading(false)
     } catch (error) {
-      
+      setIsLoading(false)
     }
   }
 
@@ -43,6 +46,10 @@ const Blogs = () => {
           </div>
           <div className="section_3">
 {
+  isLoading ? 
+   <div className="loading">
+    <p>Loading ....</p>
+  </div> :
   blogs?.map((b, i)=> {
     return <BlogCard title={b.title} desc={b?.content[0]?.blog?.slice(0, 130)} i={i} id={id} key={i} />
   })
